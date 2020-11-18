@@ -13,5 +13,5 @@ import org.springframework.data.repository.CrudRepository;
  * @author msulbara
  */
 public interface RecipeRepository extends CrudRepository<Recipe, Long> {
-
+    
 }
