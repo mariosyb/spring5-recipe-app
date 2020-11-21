@@ -6,6 +6,7 @@
 package guru.springframework.repositories;
 
 import guru.springframework.model.UnitOfMeasure;
+import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -14,4 +15,8 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface UnitOfMeasureRepository extends CrudRepository<UnitOfMeasure, Long> {
 
+    // Spring Data Query Methods
+    // findBy<PropertyName> spring creara el query por debajo
+    // se pueden buscar varias con And
+    Optional<UnitOfMeasure> findByDescription(String description);
 }
