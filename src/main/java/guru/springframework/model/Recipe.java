@@ -5,6 +5,7 @@
  */
 package guru.springframework.model;
 
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -32,7 +33,10 @@ public class Recipe {
     private Long id;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingridients;
+    private Set<Ingredient> ingredients = new HashSet<>();
+
+    @Lob
+    private String directions;
 
     @Lob
     private Byte[] image;
@@ -44,10 +48,10 @@ public class Recipe {
     private Notes notes;
 
     @ManyToMany
-    @JoinTable(name = "recipe_category",                    // creando una tabla confunta para la relacion
-            joinColumns = @JoinColumn(name = "recipe_id"),  // RECIPE/CATEGORIA
+    @JoinTable(name = "recipe_category", // creando una tabla confunta para la relacion
+            joinColumns = @JoinColumn(name = "recipe_id"), // RECIPE/CATEGORIA
             inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private Set<Category> categories;
+    private Set<Category> categories = new HashSet<>();
 
     private String description;
     private Integer prepTime;
@@ -55,7 +59,6 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
-    private String directions;
 
     public Long getId() {
         return id;
@@ -65,12 +68,20 @@ public class Recipe {
         this.id = id;
     }
 
-    public Set<Ingredient> getIngridients() {
-        return ingridients;
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
     }
 
-    public void setIngridients(Set<Ingredient> ingridients) {
-        this.ingridients = ingridients;
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public String getDirections() {
+        return directions;
+    }
+
+    public void setDirections(String directions) {
+        this.directions = directions;
     }
 
     public Byte[] getImage() {
@@ -151,14 +162,6 @@ public class Recipe {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public String getDirections() {
-        return directions;
-    }
-
-    public void setDirections(String directions) {
-        this.directions = directions;
     }
 
 }
