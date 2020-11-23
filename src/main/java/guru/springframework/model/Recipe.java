@@ -76,6 +76,12 @@ public class Recipe {
         this.ingredients = ingredients;
     }
 
+    public Recipe addIngredient(Ingredient ingredient) {
+        ingredient.setRecipe(this);  // relaciona el ingrediente con su recipe
+        this.ingredients.add(ingredient);
+        return this;
+    }
+
     public String getDirections() {
         return directions;
     }
@@ -106,6 +112,7 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+        notes.setRecipe(this); // relaciona notas con su Recipe, relacion bidireccional
     }
 
     public Set<Category> getCategories() {
