@@ -18,14 +18,18 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author msulbara
  */
+@Slf4j // injects de logger facade to gets access to Spring Boot default logback
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -40,9 +44,10 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     }
 
     @Override
+    @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        System.out.println("ContextRefreshedEvent - disparado");
         recipeRepository.saveAll(getRecipes());
+        log.debug("Loading Bootstrap Data...");
     }
 
     private List<Recipe> getRecipes() {
