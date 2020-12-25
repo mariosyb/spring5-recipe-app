@@ -6,13 +6,15 @@
 package guru.springframework.services;
 
 import guru.springframework.model.Recipe;
+
 import java.util.Set;
 
 /**
- *
  * @author msulbara
  */
 public interface RecipeService {
 
     Set<Recipe> getRecipes();
+
+    Recipe findById(Long l);
 }
