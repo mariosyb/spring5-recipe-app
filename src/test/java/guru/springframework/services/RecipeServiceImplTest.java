@@ -1,5 +1,7 @@
 package guru.springframework.services;
 
+import guru.springframework.converters.RecipeCommandToRecipe;
+import guru.springframework.converters.RecipeToRecipeCommand;
 import guru.springframework.model.Recipe;
 import guru.springframework.repositories.RecipeRepository;
 import org.junit.Before;
@@ -24,12 +26,18 @@ public class RecipeServiceImplTest {
     @Mock
     RecipeRepository recipeRepository;
 
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+
     @Before
     public void setUp() throws Exception {
         // initialize Mocks
         MockitoAnnotations.initMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
@@ -62,5 +70,7 @@ public class RecipeServiceImplTest {
 
         // verifica que findAll se llamo 1 sola vez
         verify(recipeRepository, times(1)).findAll();
+        // verfiica que findById no se llamo
+        verify(recipeRepository, never()).findById(anyLong());
     }
 }
