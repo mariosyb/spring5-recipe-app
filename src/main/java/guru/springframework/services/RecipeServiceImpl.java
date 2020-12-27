@@ -26,7 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class RecipeServiceImpl implements RecipeService {
 
-    // isar final en los repositorios, recomendado
+    // usar final en los repositorios, recomendado
     private final RecipeRepository recipeRepository;
     private final RecipeCommandToRecipe recipeCommandToRecipe;
     private final RecipeToRecipeCommand recipeToRecipeCommand;
