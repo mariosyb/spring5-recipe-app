@@ -1,7 +1,7 @@
 package guru.springframework.domain;
 
 /**
- * Created by jt on 6/13/17.
+ *
  */
 public enum Difficulty {
 
