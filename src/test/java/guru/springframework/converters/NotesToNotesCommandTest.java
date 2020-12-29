@@ -1,12 +1,15 @@
 package guru.springframework.converters;
 
 import guru.springframework.commands.NotesCommand;
-import guru.springframework.model.Notes;
+import guru.springframework.domain.Notes;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Created by jt on 6/21/17.
+ */
 public class NotesToNotesCommandTest {
 
     public static final Long ID_VALUE = new Long(1L);

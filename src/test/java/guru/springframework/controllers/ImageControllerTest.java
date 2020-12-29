@@ -68,6 +68,7 @@ public class ImageControllerTest {
         verify(imageService, times(1)).saveImageFile(anyLong(), any());
     }
 
+
     @Test
     public void renderImageFromDB() throws Exception {
 
@@ -80,7 +81,7 @@ public class ImageControllerTest {
 
         int i = 0;
 
-        for (byte primByte : s.getBytes()) {
+        for (byte primByte : s.getBytes()){
             bytesBoxed[i++] = primByte;
         }
 
@@ -97,6 +98,4 @@ public class ImageControllerTest {
 
         assertEquals(s.getBytes().length, reponseBytes.length);
     }
-
-
 }

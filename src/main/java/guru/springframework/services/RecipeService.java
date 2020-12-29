@@ -1,17 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package guru.springframework.services;
 
 import guru.springframework.commands.RecipeCommand;
-import guru.springframework.model.Recipe;
+import guru.springframework.domain.Recipe;
 
 import java.util.Set;
 
 /**
- * @author msulbara
+ * Created by jt on 6/13/17.
  */
 public interface RecipeService {
 
@@ -19,9 +14,9 @@ public interface RecipeService {
 
     Recipe findById(Long l);
 
-    RecipeCommand saveRecipeCommand(RecipeCommand command);
-
     RecipeCommand findCommandById(Long l);
+
+    RecipeCommand saveRecipeCommand(RecipeCommand command);
 
     void deleteById(Long idToDelete);
 }

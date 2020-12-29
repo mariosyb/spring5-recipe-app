@@ -3,7 +3,7 @@ package guru.springframework.services;
 import guru.springframework.commands.RecipeCommand;
 import guru.springframework.converters.RecipeCommandToRecipe;
 import guru.springframework.converters.RecipeToRecipeCommand;
-import guru.springframework.model.Recipe;
+import guru.springframework.domain.Recipe;
 import guru.springframework.repositories.RecipeRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,6 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.junit.Assert.assertEquals;
 
 
+/**
+ * Created by jt on 6/21/17.
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RecipeServiceIT {

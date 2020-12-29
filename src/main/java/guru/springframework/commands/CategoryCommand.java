@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
- * command objects to expose
+ * Created by jt on 6/21/17.
  */
 @Setter
 @Getter

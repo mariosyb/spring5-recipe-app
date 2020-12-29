@@ -1,6 +1,6 @@
 package guru.springframework.repositories;
 
-import guru.springframework.model.UnitOfMeasure;
+import guru.springframework.domain.UnitOfMeasure;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,13 +10,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
- * Integration Test
+ * Created by jt on 6/17/17.
  */
-@RunWith(SpringRunner.class) //  enable spring boot features like @Autowire, @MockBean etc
-@DataJpaTest // brings a embed database an configures jpa
+@RunWith(SpringRunner.class)
+@DataJpaTest
 public class UnitOfMeasureRepositoryIT {
 
     @Autowired
@@ -28,17 +28,18 @@ public class UnitOfMeasureRepositoryIT {
 
     @Test
     public void findByDescription() throws Exception {
-        Optional<UnitOfMeasure> unitOfMeasureOptional =
-                unitOfMeasureRepository.findByDescription("Teaspoon");
 
-        assertEquals("Teaspoon", unitOfMeasureOptional.get().getDescription());
+        Optional<UnitOfMeasure> uomOptional = unitOfMeasureRepository.findByDescription("Teaspoon");
+
+        assertEquals("Teaspoon", uomOptional.get().getDescription());
     }
 
     @Test
     public void findByDescriptionCup() throws Exception {
-        Optional<UnitOfMeasure> unitOfMeasureOptional =
-                unitOfMeasureRepository.findByDescription("Cup");
 
-        assertEquals("Cup", unitOfMeasureOptional.get().getDescription());
+        Optional<UnitOfMeasure> uomOptional = unitOfMeasureRepository.findByDescription("Cup");
+
+        assertEquals("Cup", uomOptional.get().getDescription());
     }
+
 }
