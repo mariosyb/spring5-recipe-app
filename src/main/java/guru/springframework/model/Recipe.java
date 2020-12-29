@@ -6,6 +6,8 @@
 package guru.springframework.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,7 +28,8 @@ import javax.persistence.OneToOne;
 /**
  * @author msulbara
  */
-@Data
+@Getter
+@Setter
 @Entity
 public class Recipe {
 

@@ -7,6 +7,8 @@ package guru.springframework.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Set;
 import javax.persistence.Entity;
@@ -19,7 +21,9 @@ import javax.persistence.ManyToMany;
  *
  * @author msulbara
  */
-@Data // default equals, hashcode, getters and setters and  RequiredArgsConstructor
+//@Data // default equals, hashcode, getters and setters and  RequiredArgsConstructor
+@Getter
+@Setter
 @EqualsAndHashCode(exclude = {"recipes"})
 @Entity
 public class Category {
